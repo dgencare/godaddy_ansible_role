@@ -82,7 +82,7 @@ Set environment variables (for convenience)
 $ export GODADDY_API_KEY="<your key>"
 $ export GODADDY_API_SECRET="<your secret>"
 $ export GODADDY_DOMAIN="<your domain>"
-$ cat > godaddy_data.yml << _EOF
+$ cat > godaddy_vars.yml << _EOF
 godaddy_api_key: '${GODADDY_API_KEY}'
 godaddy_api_secret: '${GODADDY_API_SECRET}'
 godaddy_domain_name: '${GODADDY_DOMAIN}'
@@ -93,7 +93,7 @@ _EOF
 ```bash
 $ ansible-playbook \
     -i inventory \
-    -e @godaddy_data.yml \
+    -e @godaddy_vars.yml \
     -e godaddy_record_name=myservice \
     -e record_data=1.2.3.4 \
     site.yml
@@ -103,7 +103,7 @@ $ ansible-playbook \
 ```bash
 $ ansible-playbook \
     -i inventory \
-    -e @godaddy_data.yml \
+    -e @godaddy_vars.yml \
     -e godaddy_record_name=myservice \
     -e record_data=1.2.3.4 \
     -e action=remove \
@@ -113,7 +113,7 @@ $ ansible-playbook \
 ```bash
 $ ansible-playbook \
     -i inventory \
-    -e @godaddy_data.yml \
+    -e @godaddy_vars.yml \
     -e godaddy_record_name=ldap \
     -e record_data=1.2.3.4 \
     -e service=ldap \
